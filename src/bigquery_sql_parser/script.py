@@ -83,7 +83,7 @@ class Script(Multiline):
         return False
 
     @property
-    def is_temp_function(self):
+    def is_create_table(self):
         matches = re.findall('(?i:CREATE TABLE)', self._text)
         if matches:
             return True
