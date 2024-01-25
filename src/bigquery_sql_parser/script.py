@@ -83,6 +83,13 @@ class Script(Multiline):
         return False
 
     @property
+    def is_temp_function(self):
+        matches = re.findall('(?i:CREATE TABLE)', self._text)
+        if matches:
+            return True
+        return False
+
+    @property
     def is_insert_statement(self):
         matches = re.findall('(?i:INSERT INTO)', self._text)
         if matches:
